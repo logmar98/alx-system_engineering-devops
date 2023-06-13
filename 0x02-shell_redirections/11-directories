@@ -1,2 +1,2 @@
 #!/bin/bash
-awk '/root/' /etc/passwd
+find . -type d \-not name "." | wc \-l
