@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -o . | sort -rn | tr -d '\n'
+rev
