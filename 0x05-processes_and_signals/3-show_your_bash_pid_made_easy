@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#show your bash made easy
+
+pgrep bash -l

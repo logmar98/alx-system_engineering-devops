@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#kill procces
+
+pkill -f -SIGKILL 7-highlander

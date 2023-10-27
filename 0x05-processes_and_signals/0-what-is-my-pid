@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#call pid.
+
+pid=$$
+
+echo "$pid"
