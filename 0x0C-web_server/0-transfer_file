@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 4 ]; then
+    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+    path=$1
+    usrname=$2
+    ip=$3
+    pv_key=$4
+
+    scp -i $pv_key $path $usrname@$ip:~/
+fi
