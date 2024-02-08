@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# replace line
+apt-get update
+apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+
+nginx_config_file="/etc/nginx/sites-available/default"
+
+redirection_config="location /redirect_me {
+    return 301 http://example.com/new_page;
+}"
+sudo sed -i '/server {/a '"$redirection_config"'' "$nginx_config_file"
+
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+	service nginx start
+else
+	service nginx restart
+fi
