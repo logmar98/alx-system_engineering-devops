@@ -2,6 +2,7 @@
 '''give employee ID'''
 import requests
 import sys
+import json
 
 if __name__ == "__main__":
     arg = sys.argv[1]
@@ -14,12 +15,16 @@ if __name__ == "__main__":
 
     tasks = len(todo_data)
     user_name = user_data['username']
-    
-    obj = {'{}'.format(arg): []}
-    
-    for item in todo_data:
-        obj['{}'.format(arg)]['task'] = item["title"]
-        obj['{}'.format(arg)]['completed'] = item['completed']
-        obj['{}'.format(arg)]['username'] = user_name
 
-    print(obj)
+    obj = {'{}'.format(arg): []}
+
+    for item in todo_data:
+        todo_obj = {}
+        todo_obj['task'] = item["title"]
+        todo_obj['completed'] = item['completed']
+        todo_obj['username'] = user_name
+        obj['{}'.format(arg)].append(todo_obj)
+
+    json_data = json.dumps(obj)
+    with open('{}.json'.format(arg), 'w') as file:
+        file.write(json_data)
