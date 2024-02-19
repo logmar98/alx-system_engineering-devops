@@ -13,9 +13,13 @@ if __name__ == "__main__":
     user_data = resp_user.json()
 
     tasks = len(todo_data)
-    user_name = user_data['name']
+    user_name = user_data['username']
 
-    
     for item in todo_data:
-        if item["completed"] is True:
-            print('"{}","{}","{}","{}"'.format(arg, user_name, item["completed"] item["title"]))
+        print('"{}","{}","{}","{}"'.format(arg, user_name,
+                                           item["completed"], item["title"]))
+        with open('{}.csv'.format(arg), 'a') as file:
+            file.write('"{}","{}","{}","{}"\n'.format(arg,
+                                                      user_name,
+                                                      item["completed"],
+                                                      item["title"]))
