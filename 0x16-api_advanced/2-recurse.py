@@ -10,7 +10,7 @@ def recurse(subreddit, hot_list=[], count=0, after=None):
     sub_info = requests.get("https://www.reddit.com/r/{}/hot.json"
                             .format(subreddit),
                             params={"count": count, "after": after},
-                            headers={"User-Agent": "test-api for project in alx school"},
+                            headers={"User-Agent": "test api for alx"},
                             allow_redirects=False)
     if sub_info.status_code >= 400:
         return None
