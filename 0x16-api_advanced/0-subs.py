@@ -5,7 +5,6 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Return total number of subscribers subreddit."""
-
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {
         "User-Agent": "test-api for project in alx school"
