@@ -9,10 +9,8 @@ def number_of_subscribers(subreddit):
     headers = {
         "User-Agent": "test-api for project in alx school"
     }
-
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 404:
         return 0
-
     results = response.json().get("data")
     return results.get("subscribers")
